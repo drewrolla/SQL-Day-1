@@ -80,11 +80,11 @@ WHERE store_id = 1 AND last_name LIKE '%es';
 -- GROUP BY amount
 -- HAVING rental_id > 250;
 
-SELECT amount, rental_id, customer_id
+SELECT amount, COUNT(rental_id) -- how come when i removed customer_id it worked?
 FROM payment
-WHERE customer_id BETWEEN 380 AND 430
+WHERE payment.customer_id BETWEEN 380 AND 430
 GROUP BY amount
-HAVING rental_id > 250;
+HAVING COUNT(rental_id) > 250;
 
 -- 10. Within the film table, how many rating categories are there? And what rating has the most
 -- movies total?
